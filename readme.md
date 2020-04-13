@@ -20,13 +20,13 @@ This plugin also brings some implementation improvements over `react-hot-loader`
 ## Installation
 
 ```
-npm install --save next-hot-loader @hot-loader/react-dom
+npm install --save next-hot-loader react-hot-loader @hot-loader/react-dom
 ```
 
 or
 
 ```
-yarn add next-hot-loader @hot-loader/react-dom
+yarn add next-hot-loader react-hot-loader @hot-loader/react-dom
 ```
 
 ## Usage
@@ -50,7 +50,7 @@ module.exports = withHotLoader({
 In any component (usually pages):
 
 ```jsx
-import { hot } from "next-hot-loader/hoc";
+import { hot } from "react-hot-loader/root";
 
 const Component = () => <div>Content</div>;
 
