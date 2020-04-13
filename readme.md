@@ -20,13 +20,13 @@ This plugin also brings some implementation improvements over `react-hot-loader`
 ## Installation
 
 ```
-npm install --save next-plugin-hot-loader @hot-loader/react-dom
+npm install --save next-hot-loader @hot-loader/react-dom
 ```
 
 or
 
 ```
-yarn add next-plugin-hot-loader @hot-loader/react-dom
+yarn add next-hot-loader @hot-loader/react-dom
 ```
 
 ## Usage
@@ -37,7 +37,7 @@ Create a `next.config.js` in the root of your project (next to pages/ and packag
 
 ```js
 // next.config.js
-const withHotLoader = require("next-plugin-hot-loader");
+const withHotLoader = require("next-hot-loader");
 module.exports = withHotLoader({
   /* Next.js config options here */
 });
@@ -50,7 +50,7 @@ module.exports = withHotLoader({
 In any component (usually pages):
 
 ```jsx
-import { hot } from "next-plugin-hot-loader/hoc";
+import { hot } from "next-hot-loader/hoc";
 
 const Component = () => <div>Content</div>;
 

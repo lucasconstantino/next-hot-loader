@@ -1,5 +1,5 @@
 {
-  "name": "next-plugin-hot-loader",
+  "name": "next-hot-loader",
   "version": "0.1.1",
   "description": "React Hot Loader meets Next.js once again",
   "keywords": [
@@ -9,13 +9,13 @@
     "react",
     "loader"
   ],
-  "homepage": "https://github.com/lucasconstantino/next-plugin-hot-loader#readme",
+  "homepage": "https://github.com/lucasconstantino/next-hot-loader#readme",
   "bugs": {
-    "url": "https://github.com/lucasconstantino/next-plugin-hot-loader/issues"
+    "url": "https://github.com/lucasconstantino/next-hot-loader/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lucasconstantino/next-plugin-hot-loader.git"
+    "url": "git+https://github.com/lucasconstantino/next-hot-loader.git"
   },
   "license": "MIT",
   "author": "Lucas Constantino Silva",
