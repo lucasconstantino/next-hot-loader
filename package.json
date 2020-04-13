@@ -1,14 +1,33 @@
 {
   "name": "next-plugin-hot-loader",
+  "version": "0.1.1",
   "description": "React Hot Loader meets Next.js once again",
-  "version": "0.1.0",
-  "main": "index.js",
+  "keywords": [
+    "webpack",
+    "next.js",
+    "hmr",
+    "react",
+    "loader"
+  ],
+  "homepage": "https://github.com/lucasconstantino/next-plugin-hot-loader#readme",
+  "bugs": {
+    "url": "https://github.com/lucasconstantino/next-plugin-hot-loader/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasconstantino/next-plugin-hot-loader.git"
+  },
   "license": "MIT",
-  "repository": "lucasconstantino/next-plugin-hot-loader",
+  "author": "Lucas Constantino Silva",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "react-hot-loader": "^4.12.20",
     "traverse": "^0.6.6"
   },
+  "devDependencies": {},
   "peerDependencies": {
     "@hot-loader/react-dom": "^16.13.0",
     "webpack": "^4.29.5"
