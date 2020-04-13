@@ -6,16 +6,16 @@ This plugin enables [React Hot Loader](https://github.com/gaearon/) for Next.js.
 
 Before you go further, here are some things you should know about `react-hot-loader`:
 
-* It was [intentionally removed from Next.js](https://github.com/zeit/next.js/issues/4494) due to the many issues it causes;
-* It might soon be deprecated in favour of [Fast Refresh](https://github.com/facebook/react/issues/16604);
-* HMR is not the same as `react-hot-loader`; HMR works on Next.js out-of-the-box, but *states are NOT kept between reloads*.
+- It was [intentionally removed from Next.js](https://github.com/zeit/next.js/issues/4494) due to the many issues it causes;
+- It might soon be deprecated in favour of [Fast Refresh](https://github.com/facebook/react/issues/16604);
+- HMR is not the same as `react-hot-loader`; HMR works on Next.js out-of-the-box, but _states are NOT kept between reloads_.
 
 This plugin can still be considered for those who desperately need state persisting during development, usually due to hard-to-achieve states.
 
 This plugin also brings some implementation improvements over `react-hot-loader`, such as:
 
-* Opt-in on any component, to avoid affecting the whole application;
-* Removes itself transparently when `NODE_ENV !== 'development'`.
+- Opt-in on any component, to avoid affecting the whole application;
+- Removes itself transparently when `NODE_ENV !== 'development'`.
 
 ## Installation
 
@@ -37,22 +37,22 @@ Create a `next.config.js` in the root of your project (next to pages/ and packag
 
 ```js
 // next.config.js
-const withHOTLoader = require('next-plugin-hot-loader')
-module.exports = withHOTLoader({
+const withHotLoader = require("next-plugin-hot-loader");
+module.exports = withHotLoader({
   /* Next.js config options here */
-})
+});
 ```
 
-`withHOTLoader` should encapsulate a Next.js configuration object.
+`withHotLoader` should encapsulate a Next.js configuration object.
 
 ### Opt-in on components
 
 In any component (usually pages):
 
 ```jsx
-import { hot } from 'next-plugin-hot-loader/hoc'
+import { hot } from "next-plugin-hot-loader/hoc";
 
-const Component = () => <div>Content</div>
+const Component = () => <div>Content</div>;
 
-export default hot(Component)
+export default hot(Component);
 ```
