@@ -1,5 +1,6 @@
 {
   "name": "next-plugin-hot-loader",
+  "description": "React Hot Loader meets Next.js once again",
   "version": "0.1.0",
   "main": "index.js",
   "license": "MIT",
