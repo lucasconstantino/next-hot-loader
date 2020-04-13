@@ -1,44 +1,46 @@
-const cssLoaderConfig = require('./css-loader-config')
+const traverse = require("traverse");
 
 module.exports = (nextConfig = {}) => {
   return Object.assign({}, nextConfig, {
-    webpack(config, options) {
-      if (!options.defaultLoaders) {
-        throw new Error(
-          'This plugin is not compatible with Next.js versions below 5.0.0 https://err.sh/next-plugins/upgrade'
-        )
-      }
+    webpack(initial, options) {
+      let config = initial;
+      const { dev } = options;
 
-      const { dev, isServer } = options
-      const { cssModules, cssLoaderOptions, postcssLoaderOptions } = nextConfig
+      if (dev) {
+        config = Object.assign({}, initial, {
+          entry: async () => {
+            const entries = await initial.entry();
 
-      options.defaultLoaders.css = cssLoaderConfig(config, {
-        extensions: ['css'],
-        cssModules,
-        cssLoaderOptions,
-        postcssLoaderOptions,
-        dev,
-        isServer
-      })
+            // 1. inject react-hot-loader patch entrypoint.
+            if (entries["static/runtime/main.js"]) {
+              entries["static/runtime/main.js"] = [
+                "react-hot-loader/patch",
+                entries["static/runtime/main.js"],
+              ];
+            }
 
-      config.module.rules.push({
-        test: /\.css$/,
-        issuer(issuer) {
-          if (issuer.match(/pages[\\/]_document\.js$/)) {
-            throw new Error(
-              'You can not import CSS files in pages/_document.js, use pages/_app.js instead.'
-            )
+            return entries;
+          },
+        });
+
+        // 2. replace react-dom with patched @hot-loader/react-dom
+        config.resolve.alias["react-dom"] = "@hot-loader/react-dom";
+
+        // 3. add react-hot-loader/babel plugin
+        config.module.rules = traverse(config.module.rules).map(function (x) {
+          if (x && x.loader === "next-babel-loader" && x.options) {
+            x.options.plugins = x.options.plugins || [];
+            x.options.plugins.push(require.resolve("react-hot-loader/babel"));
+            this.update(x);
           }
-          return true
-        },
-        use: options.defaultLoaders.css
-      })
-
-      if (typeof nextConfig.webpack === 'function') {
-        return nextConfig.webpack(config, options)
+        });
       }
 
-      return config
-    }
-  })
-}
+      if (typeof nextConfig.webpack === "function") {
+        return nextConfig.webpack(config, options);
+      }
+
+      return config;
+    },
+  });
+};

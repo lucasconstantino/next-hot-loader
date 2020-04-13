@@ -5,7 +5,8 @@
   "license": "MIT",
   "repository": "lucasconstantino/next-plugin-hot-loader",
   "dependencies": {
-    "react-hot-loader": "^4.12.20"
+    "react-hot-loader": "^4.12.20",
+    "traverse": "^0.6.6"
   },
   "peerDependencies": {
     "@hot-loader/react-dom": "^16.13.0",
