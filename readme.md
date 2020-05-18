@@ -2,7 +2,9 @@
 
 This plugin enables [React Hot Loader](https://github.com/gaearon/) for Next.js.
 
-## ⚠️ When to use it
+## ⚠️ This package is deprecated. Use [Fast Refresh](https://nextjs.org/blog/next-9-4#fast-refresh) instead!
+
+## When to use it
 
 Before you go further, here are some things you should know about `react-hot-loader`:
 
